@@ -1,0 +1,98 @@
+<html>
+<title>Simple Calculator</title>
+<head>
+  <style>
+	h1 {
+	  text-align: center;
+	  color: red;
+	  font-size: 200%;
+	}
+	body {
+	  background-color: green;
+	}
+
+	.box {
+	  height: 540px;
+	  width: 320px;
+	  margin-left: 100px;
+	  background-color: #fff;
+	  border-radius: 20px;
+	  align:center;
+	}
+	.outputDesign {
+	  background-color: #64d5c6;
+	  width: 300px;
+	  height: 110px;
+	  border-top-left-radius: 14px;
+	  border-top-right-radius: 14px;
+	  border-bottom-left-radius: 14px;
+	  border-bottom-right-radius: 14px;
+	  font-size: 36px;
+	  font-weight: 700;
+	  color: #5e5858;
+	  margin: 10px 5px 0px 10px;
+	}
+	.buttonDesign {
+	  background-color: #efefef;
+	  width: 60px;
+	  height: 60px;
+	  background: #ecedef;
+	  font-size: 30px;
+	  font-weight: 700;
+	  border: none;
+	  border-radius: 50%;
+	  cursor: pointer;
+	  margin: 10px 5px 0px 10px;
+	}
+
+  </style>
+  <script>
+	function display(val) {
+	  document.getElementById("output").value += val;
+	}
+
+	function compute() {
+	  var expr = document.getElementById("output").value;
+	  var solution = eval(expr);
+	  document.getElementById("output").value = solution;
+	}
+	
+	function backSpace(){
+		var expr = document.getElementById("output").value;
+		var len= expr.length;
+		document.getElementById("output").value = expr.substr(0,len-1);
+	}
+	function clearScreen(){
+		document.getElementById("output").value="";
+	}
+  </script>
+</head>
+
+<body>
+	<div class='box'>
+    <h1>My Calculator</h1>
+    <input id="output" class="outputDesign" readonly=true /><br>
+	<button class="buttonDesign" onclick="clearScreen()">CE</button>
+    <button class="buttonDesign" onclick="display('(')">(</button>
+    <button class="buttonDesign" onclick="display(')')">)</button>
+    <button class="buttonDesign" onclick="backSpace()" style="background-color:red">&#x2408</button><br>
+    <button class="buttonDesign" onclick="display('9')">9</button>
+    <button class="buttonDesign" onclick="display('8')">8</button>
+    <button class="buttonDesign" onclick="display('7')">7</button>
+    <button class="buttonDesign" onclick="display('+')">+</button><br>
+    <button class="buttonDesign" onclick="display('6')">6</button>
+    <button class="buttonDesign" onclick="display('5')">5</button>
+    <button class="buttonDesign" onclick="display('4')">4</button>
+    <button class="buttonDesign" onclick="display('*')">*</button><br>
+    <button class="buttonDesign" onclick="display('3')">3</button>
+    <button class="buttonDesign" onclick="display('2')">2</button>
+    <button class="buttonDesign" onclick="display('1')">1</button>
+    <button class="buttonDesign" onclick="display('-')">-</button><br>
+    <button class="buttonDesign" onclick="display('0')">0</button>
+    <button class="buttonDesign" onclick="display('.')">.</button>
+    <button class="buttonDesign" onclick="display('/')">/</button>
+    <button class="buttonDesign" onclick="compute()" style="background-color:green">=</button>
+  </div>
+</body>
+
+</html>
